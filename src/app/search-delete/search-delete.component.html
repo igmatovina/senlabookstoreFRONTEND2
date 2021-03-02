@@ -38,8 +38,12 @@
             <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteBook(book.isbn)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
             <td class="text-center"><button class="btn btn-info" (click)="updateEmployee(book.isbn)"><span class="glyphicon glyphicon-remove"></span>Edit</button></td>
 
-        </tr>
-        <button class="btn btn-info" (click)="downloadFile()"><span class="glyphicon glyphicon-remove"></span>download</button>    </tbody>
-    </table>
+        </tr>    
+        <button class="btn btn-primary" style="margin-left: 10px" (click)="downloadYoutube(xmlFileName)">download File</button>
+    
+    
+    </tbody>  
+
+        </table>
     </div>
 </div>
