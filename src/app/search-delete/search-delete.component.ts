@@ -50,15 +50,14 @@ export class SearchDeleteComponent implements OnInit {
     this.router.navigate(['update', id]);
   }
 
-
-  downloadFile2() {
-    this.fileDownloadService.downloadFile4();
+  public addEmployee(){
+    this.router.navigate(['add']);
   }
 
 
-  public downloadYoutube(fileName:any){
+  public downloadXmlFile(fileName:any){
     const EXT = fileName.substr(fileName.lastIndexOf('.') + 1);
-    this.fileDownloadService.downloadYoutube({'fileName':fileName})
+    this.fileDownloadService.downloadXml({'fileName':fileName})
     .subscribe(data=>{
       saveAs(new Blob([data], { type:MIME_TYPES[EXT]}),fileName);
 

@@ -9,9 +9,21 @@ import { Observable } from 'rxjs';
 export class FileDownloadService {
 
   constructor(private http:HttpClient) { }
-
   
-  downloadFile2(data: any) {
+  downloadXml(data:any){
+
+    const REQUEST_HEADERS = new HttpHeaders({ 'Accept': 'application/xml' });
+    const REQUEST_PARAMS = new HttpParams().set('fileName', data.fileName);
+    const REQUEST_URI = 'http://localhost:8080/downloadXml';
+    return this.http.get(REQUEST_URI, {
+      headers : REQUEST_HEADERS,
+      params: REQUEST_PARAMS,
+      responseType: 'blob'
+    })
+
+  }
+  
+/*   downloadFile2(data: any) {
     // we would call the spring-boot service
     const REQUEST_HEADERS = new HttpHeaders({ 'Accept': 'application/xml' });
     const REQUEST_PARAMS = new HttpParams().set('fileName', data.fileName);
@@ -45,28 +57,16 @@ export class FileDownloadService {
       headers : REQUEST_HEADERS,
       responseType: 'text'
     })  
-  }
+  } */
 
-  public getPDF(): Observable<Blob> {   
+/*   public getPDF(): Observable<Blob> {   
     //const options = { responseType: 'blob' }; there is no use of this
         let uri = 'http://localhost:8080//downloadXml';
         // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
         return this.http.get(uri, { responseType: 'blob' });
-    }
+    } */
 
 
-  downloadYoutube(data:any){
-
-    const REQUEST_HEADERS = new HttpHeaders({ 'Accept': 'application/xml' });
-    const REQUEST_PARAMS = new HttpParams().set('fileName', data.fileName);
-    const REQUEST_URI = 'http://localhost:8080/downloadYoutube';
-    return this.http.get(REQUEST_URI, {
-      headers : REQUEST_HEADERS,
-      params: REQUEST_PARAMS,
-      responseType: 'blob'
-    })
-
-  }
 /*   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const data: FormData = new FormData();
     data.append('file', file);

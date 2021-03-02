@@ -11,8 +11,8 @@
         <div class="col-md-6">
             <form>
                 <fieldset>
-                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
-                                required *</small></span></legend>
+                    <legend class="text-center">Enter new book. <span class="req"><small>
+                                </small></span></legend>
                     <div class="form-group">
                         <label for="title"><span class="req">* </span> Title:</label>
                         <input required type="text" [(ngModel)]="book.title" name="title" id="title"
@@ -26,7 +26,9 @@
                     </div>
                     <div class="form-group">
                         <input class="btn btn-success" type="submit" name="submit_reg" value="Add" (click)="addNow()">
+                        <button class="btn btn-primary" style="margin-left: 10px" (click)="back()">Back</button>
                     </div>
+
                 </fieldset>
             </form><!-- ends register form -->
             <!-- second for to fiter user-->

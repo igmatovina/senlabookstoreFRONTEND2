@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from '../book';
 import { BookAddService } from '../book-add.service';
 
@@ -13,7 +14,7 @@ export class BookAddComponent implements OnInit {
   book: Book=new Book(0,"","");
   message:any;
 
-  constructor(private service: BookAddService) { }
+  constructor(private service: BookAddService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,10 @@ export class BookAddComponent implements OnInit {
   public addNow(){
     let resp = this.service.doAdd(this.book);
     resp.subscribe((data)=>this.message=data);
+  }
+
+  public back(){
+    this.router.navigate(['search']);
   }
 
 }
